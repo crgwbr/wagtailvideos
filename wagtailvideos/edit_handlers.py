@@ -4,11 +4,6 @@ from .widgets import AdminVideoChooser
 
 
 class VideoChooserPanel(FieldPanel):
-    model = None
-    field_name = None
-    _target_model = None
-
-    object_type_name = "video"
-
-    def widget_overrides(self):
-        return {self.field_name: AdminVideoChooser}
+    def __init__(self, field_name, disable_comments=None, permission=None, **kwargs):
+        kwargs['widget'] = AdminVideoChooser
+        super().__init__(field_name, disable_comments=disable_comments, permission=permission, **kwargs)

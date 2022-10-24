@@ -13,7 +13,7 @@
                     title="{{ video.title }}"
                     href="{% url 'wagtailvideos_chooser:chosen' video.id %}"
                 >
-                    <div class="image">
+                    <figure>
                         {% if video.thumbnail %}
                             <img
                                 src="{{ video.thumbnail.url }}"
@@ -30,8 +30,8 @@
                                 alt=""
                             />
                         {% endif %}
-                    </div>
-                    <h3>{{ video.title|ellipsistrim:60 }}</h3>
+                        <figcaption>{{ video.title|ellipsistrim:60 }}</figcaption>
+                    </figure>
                 </a>
             </li>
         {% endfor %}

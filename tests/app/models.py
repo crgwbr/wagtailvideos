@@ -1,6 +1,6 @@
 from django.db import models
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 
@@ -51,5 +51,5 @@ class TestPage(Page):
 
     content_panels = Page.content_panels + [
         VideoChooserPanel('video_field'),
-        StreamFieldPanel('video_streamfield'),
+        FieldPanel('video_streamfield'),
     ]

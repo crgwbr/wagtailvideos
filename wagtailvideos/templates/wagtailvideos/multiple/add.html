@@ -1,10 +1,9 @@
 {% extends "wagtailadmin/base.html" %}
-{% load i18n static %}
+{% load i18n static wagtailadmin_tags %}
 {% block titletag %}{% trans "Add multiple videos" %}{% endblock %}
 {% block extra_css %}
     {{ block.super }}
-    <!-- it's cheating but we're  just going to use wagtailimages css since they should look identical anyways -->
-    <link rel="stylesheet" href="{% static 'wagtailimages/css/add-multiple.css' %}" type="text/css" />
+    
 {% endblock %}
 
 {% block content %}
@@ -67,10 +66,14 @@
     {{ block.super }}
 
     <!-- this exact order of plugins is vital -->
-    <script src="{% static 'wagtailadmin/js/vendor/jquery.iframe-transport.js' %}"></script>
-    <script src="{% static 'wagtailadmin/js/vendor/jquery.fileupload.js' %}"></script>
-    <script src="{% static 'wagtailadmin/js/vendor/jquery.fileupload-process.js' %}"></script>
-    <script src="{% static 'wagtailadmin/js/vendor/tag-it.js' %}"></script>
+    <script src="{% versioned_static 'wagtailimages/js/vendor/load-image.min.js' %}"></script>
+    <script src="{% versioned_static 'wagtailimages/js/vendor/canvas-to-blob.min.js' %}"></script>
+    <script src="{% versioned_static 'wagtailadmin/js/vendor/jquery.iframe-transport.js' %}"></script>
+    <script src="{% versioned_static 'wagtailadmin/js/vendor/jquery.fileupload.js' %}"></script>
+    <script src="{% versioned_static 'wagtailadmin/js/vendor/jquery.fileupload-process.js' %}"></script>
+    <script src="{% versioned_static 'wagtailimages/js/vendor/jquery.fileupload-image.js' %}"></script>
+    <script src="{% versioned_static 'wagtailimages/js/vendor/jquery.fileupload-validate.js' %}"></script>
+    <script src="{% versioned_static 'wagtailadmin/js/vendor/tag-it.js' %}"></script>
 
     <!-- Main script -->
     <script src="{% static 'wagtailvideos/js/add-multiple.js' %}"></script>
